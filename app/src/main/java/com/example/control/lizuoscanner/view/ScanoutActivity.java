@@ -13,19 +13,17 @@ import android.widget.EditText;
 import com.example.control.lizuoscanner.R;
 import com.example.control.lizuoscanner.fragment.QrcodeListFragment;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by ma on 2018/3/14.
- */
+public class ScanoutActivity extends AppCompatActivity {
 
-public class ScanningReturnActivity extends AppCompatActivity  {
     private EditText scanoutEdit, barcodeEdit;
     private Button scanoutButton, barcodebutton,match;
 
     private List<Fragment> mList = new ArrayList<>();
-    private ScanningReturnActivity.TabAdapter adapter;
+    private TabAdapter adapter;
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -39,9 +37,10 @@ public class ScanningReturnActivity extends AppCompatActivity  {
         mList.add(new QrcodeListFragment());
         mList.add(new QrcodeListFragment());
         mList.add(new QrcodeListFragment());
-        adapter = new ScanningReturnActivity.TabAdapter(getSupportFragmentManager());
+        adapter = new TabAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+
     }
 
     private void initView() {

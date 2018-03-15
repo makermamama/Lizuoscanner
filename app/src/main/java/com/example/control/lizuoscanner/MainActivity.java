@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.example.control.lizuoscanner.prefrefrence.McuValuePrefrence;
 import com.example.control.lizuoscanner.view.LaunchActivity;
 import com.example.control.lizuoscanner.view.ScanningReturnActivity;
-import com.example.control.lizuoscanner.view.Scanout_Activity;
+import com.example.control.lizuoscanner.view.ScanoutActivity;
 import com.example.control.lizuoscanner.view.System_Activity;
 
 
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     void  Shipments_scan(){
         //判断本机是否已经注册
        if( mcuValuePrefrence.getIsRegiste() ){
-           Intent intent = new Intent(MainActivity.this ,Scanout_Activity.class);
+           Intent intent = new Intent(MainActivity.this ,ScanoutActivity.class);
            startActivity(intent);
        }else{
            Toast.makeText(MainActivity.this, "请先进行终端注册", Toast.LENGTH_SHORT).show();
