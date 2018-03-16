@@ -29,9 +29,9 @@ import java.io.IOException;
 public class LaunchActivity extends AppCompatActivity implements View.OnClickListener,BaseInterface {
 
     private String TAG = LaunchActivity.class.getSimpleName();
-    private static final String nameSpaceAddress = "http://szgree.com.cn/";
+    private static final String nameSpaceAddress  ="http://tempuri.org/";
     private static final String methodNameAddress = "CheckLogin";
-    private static final String soapActionAddress = "http://szgree.com.cn/CheckLogin";
+    private static final String soapActionAddress = "http://tempuri.org/CheckLogin";
 
     private EditText nameEditText;
     private EditText passEditText;
@@ -69,8 +69,13 @@ public class LaunchActivity extends AppCompatActivity implements View.OnClickLis
     private SoapObject getwebservice_logininfo(String name, String password) {
         SoapObject soapObject = new SoapObject(nameSpaceAddress, methodNameAddress);
 
-        soapObject.addProperty("userName", name);
-        soapObject.addProperty("userPwd", password);
+        soapObject.addProperty(LoginServerAdressKey,LoginServerAdress);
+        soapObject.addProperty(LoginDataNameKey, LoginDataName);
+        soapObject.addProperty(LoginServerNameKey, LoginServerName);
+        soapObject.addProperty(LoginServerPwdKey, LoginServerPwd);
+        soapObject.addProperty(LoginLogNameKey, name);
+        soapObject.addProperty(LoginLogPwdKey, password);
+
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
                 SoapEnvelope.VER11);
         envelope.bodyOut = soapObject;
@@ -83,8 +88,10 @@ public class LaunchActivity extends AppCompatActivity implements View.OnClickLis
             SoapObject result = (SoapObject) envelope.bodyIn;
             return  result;
         } catch (IOException e) {
+            Log.e(TAG,"登陆出错");
             e.printStackTrace();
         } catch (XmlPullParserException e) {
+            Log.e(TAG,"登陆出错");
             e.printStackTrace();
         }
         return null;
@@ -126,14 +133,12 @@ public class LaunchActivity extends AppCompatActivity implements View.OnClickLis
         String check  = soapObject.getProperty(0).toString();
         boolean usTrue = true;
        if( check.equals(String.valueOf(usTrue)) ){
-           //获取用户名
-           String name = soapObject.getProperty(1).toString();
            //持久保存
            McuValuePrefrence mcuValuePrefrence = McuValuePrefrence.getInstance();
            mcuValuePrefrence.setIsRegiste(true);
-           mcuValuePrefrence.setRegisteId(name);
            mcuValuePrefrence.setRegistePassword(passEditText.getEditableText().toString());
            mcuValuePrefrence.setRegisteName(nameEditText.getEditableText().toString());
+           Log.e(TAG,"注册且保存数据成功");
            Message message =new  Message();
            message.what = 1;
            handler.sendMessage(message);
