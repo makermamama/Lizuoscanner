@@ -22,6 +22,7 @@
         <activity android:name=".view.LaunchActivity" />
         <activity android:name=".view.System_Activity"/>
         <activity android:name=".view.ScanningReturnActivity"/>
+        <activity android:name=".view.TestActivity"/>
         <activity android:name=".view.ScanoutActivity"/>
     </application>
 </manifest>

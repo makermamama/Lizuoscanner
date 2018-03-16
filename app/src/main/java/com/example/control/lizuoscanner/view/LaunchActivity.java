@@ -40,9 +40,6 @@ public class LaunchActivity extends AppCompatActivity implements View.OnClickLis
 
     Handler handler;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

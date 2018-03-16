@@ -8,6 +8,7 @@ public interface BaseInterface {
 
     public final String BASE_URL = "http://192.168.1.114:90/";
     public static final String urlAddress = "http://192.168.1.114:90/Service1.asmx";
+    public static final String SEND_MESSAGE_ID = "CARGOLIST";
 
     public static final String LoginServerAdressKey = "ServerAdress";
     public static final String LoginDataNameKey     = "DataName";
