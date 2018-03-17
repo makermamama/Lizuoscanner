@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-     <item android:state_pressed="true"
-           android:drawable="@drawable/shape_button_green" /> <!-- pressed -->
-     <item android:state_focused="true"
-           android:drawable="@drawable/shape_button2" /> <!-- focused -->
-     <item android:drawable="@drawable/shape_button2" /> <!-- default -->
+     <!--点击背景-->
+     <item android:state_pressed="true">
+          <shape>
+               <!--色值-->
+               <solid android:color="#29e76f" />
+               <!--圆角-->
+               <corners android:radius="10dp" />
+          </shape>
+     </item>
+     <!--默认背景-->
+     <item>
+          <shape>
+               <solid android:color="#3ef68b" />
+               <corners android:radius="10dp" />
+          </shape>
+     </item>
 </selector>

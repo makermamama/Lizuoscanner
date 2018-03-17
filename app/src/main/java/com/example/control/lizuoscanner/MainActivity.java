@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
     void  Return_scan(){
         //判断本机是否已经注册
         if( mcuValuePrefrence.getIsRegiste() ){
-            Intent intent = new Intent(MainActivity.this ,TestActivity.class);
+            Intent intent = new Intent(MainActivity.this ,ScanoutActivity.class);
             startActivity(intent);
         }else{
             Toast.makeText(MainActivity.this, "请先进行终端注册", Toast.LENGTH_LONG).show();
